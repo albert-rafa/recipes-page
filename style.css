@@ -1,0 +1,144 @@
+:root {
+    --secondary-font: 'Playfair Display', serif;
+    --black-color: rgb(13, 15, 17);
+    --black-rgb: 13, 15, 17;
+    --gray-color: rgb(221, 229, 237);
+    --darker-gray-color: rgb(126, 131, 136);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    color: var(--black-color);
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--gray-color);
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+figure {
+    width: 35vw;
+    height: 12rem;
+
+    margin-bottom: 1.3em;
+
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(var(--black-rgb), 0.2);
+    overflow: hidden;
+}
+img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+h1 {
+    font-family: var(--secondary-font);
+    font-size: 4em;
+}
+h2, h3 {
+    font-family: var(--secondary-font);
+}
+
+.recipe {
+    width: 60vw;
+
+    padding: 0.3em 1em;
+
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: 
+        "ingredients instructions"
+        "divider divider"
+        "info info";
+
+    border: 2px solid var(--darker-gray-color);
+    border-radius: 3px;
+}
+.ingredients {
+    grid-area: ingredients;
+}
+.ingredients ul {
+    width: fit-content;
+
+    padding-left: 25px;
+    padding-right: 15px;
+    overflow-wrap: normal;
+}
+.ingredients ul li {
+    margin-top: 0.5rem;
+}
+.instructions {
+    grid-area: instructions;
+}
+.instructions ol {
+    width: fit-content;
+
+    padding-left: 10px;
+    padding-right: 15px;
+    overflow-wrap: normal;
+
+    list-style: none;
+    counter-reset: 1;
+}
+.instructions ol li {
+    counter-increment: item;
+}
+.instructions ol li::before {
+    content: counter(item);
+
+    font-family: var(--secondary-font);
+    font-size: 1.5em;
+    margin-right: 0.25em;
+    font-weight: 700;
+}
+.recipe hr {
+    grid-area: divider;
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    height: 0.05rem;
+    border-radius: 10px;
+
+    background-color: var(--darker-gray-color);
+}
+.additional-info {
+    grid-area: info;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+footer {
+    width: 100%;
+
+    font-size: 0.7em;
+    text-align: center;
+}
+address {
+    font-style: normal;
+    display: inline;
+}
